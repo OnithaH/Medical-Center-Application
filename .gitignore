@@ -1,0 +1,48 @@
+# --- Dependencies ---
+# Ignores node_modules in the root and ALL subfolders (backend/frontend)
+**/node_modules/
+node_modules/
+
+# --- Environment Secrets (CRITICAL) ---
+# Never commit your database passwords or API keys
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env
+
+# --- Build Outputs ---
+# Production build folders
+/frontend/dist/
+/frontend/build/
+/backend/dist/
+
+# --- Logs ---
+# Error logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# --- Database Specific ---
+# If you use SQLite for testing or have local DB dumps
+*.sqlite
+*.db
+dump.rdb
+.pstore
+
+# --- IDE & OS Specific ---
+# Editor settings and OS junk files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Documentation Cache ---
+# If you use Swagger or other doc tools
+.eslintcache
+.stylelintcache
+
