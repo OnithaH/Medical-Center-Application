@@ -16,7 +16,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       DrugsPerPrescriptionId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Drugs_Per_Prescriptions',
+          key: 'id'
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

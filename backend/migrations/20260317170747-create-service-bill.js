@@ -5,9 +5,15 @@ module.exports = {
     await queryInterface.createTable('Service_Bills', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement: false,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Bills',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
       },
       Service_Fee: {
         type: Sequelize.FLOAT
