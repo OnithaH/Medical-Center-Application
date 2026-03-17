@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Dispenses', {
+    await queryInterface.createTable('Restocks', {
       id: {
         allowNull: false,
         autoIncrement: false,
@@ -15,16 +15,13 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       },
-      Dispense_Date: {
-        type: Sequelize.DATE
-      },
-      Total: {
+      Unit_Price: {
         type: Sequelize.FLOAT
       },
-      ConsultId: {
+      SupplierId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Consultations',
+          model: 'Suppliers',
           key: 'id'
         },
         onDelete: 'SET NULL',
@@ -41,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Dispenses');
+    await queryInterface.dropTable('Restocks');
   }
 };
