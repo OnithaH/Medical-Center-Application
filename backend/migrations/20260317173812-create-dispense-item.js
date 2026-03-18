@@ -23,21 +23,27 @@ module.exports = {
         references: {
           model: 'Dispenses',
           key: 'id'
-        }
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE'
       },
       DrugsPerPrescriptionId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Drugs_Per_Prescriptions',
           key: 'id'
-        }
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE'
       },
       StockId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Stocks',
           key: 'id'
-        }
+        },
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
