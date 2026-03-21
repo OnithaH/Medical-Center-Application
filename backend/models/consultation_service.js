@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Consultation, { foreignKey: 'ConsultId', as: 'consultation' });
       this.belongsTo(models.Service, { foreignKey: 'ServiceId', as: 'serviceInfo' });
+      this.hasOne(models.Service_Bill, { foreignKey: 'ConsultationServiceId', as: 'billingInfo' });
     }
   }
   Consultation_Service.init({

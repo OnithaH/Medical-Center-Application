@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Dispense, { foreignKey: 'DispenseId', as: 'dispenseRecord' });
       this.belongsTo(models.Drugs_Per_Prescription, { foreignKey: 'DrugsPerPrescriptionId', as: 'prescriptionDrug' });
       this.belongsTo(models.Stock, { foreignKey: 'StockId', as: 'stockSource' });
+      this.hasOne(models.Drug_Bill, { foreignKey: 'DispenseItemId', as: 'billingInfo' });
     }
   }
   Dispense_Item.init({

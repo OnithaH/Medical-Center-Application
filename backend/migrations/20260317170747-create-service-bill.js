@@ -18,6 +18,15 @@ module.exports = {
       Service_Fee: {
         type: Sequelize.FLOAT
       },
+      ConsultationServiceId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Consultation_Services',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
