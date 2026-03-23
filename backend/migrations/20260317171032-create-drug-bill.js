@@ -18,10 +18,10 @@ module.exports = {
       Drug_Fee: {
         type: Sequelize.FLOAT
       },
-      DispenseId: {
+      DispenseItemId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Dispenses',
+          model: 'Dispense_Items',
           key: 'id'
         },
         onDelete: 'SET NULL',
