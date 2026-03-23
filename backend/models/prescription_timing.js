@@ -10,13 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsTo(models.Drugs_Per_Prescription, { foreignKey: 'DrugsPerPrescriptionId', as: 'medication' });
+      this.hasMany(models.Drugs_Per_Prescription, { foreignKey: 'PrescriptionTimingId', as: 'prescribedDrugs' });
     }
   }
   Prescription_Timing.init({
     Scheduled_Time: DataTypes.TIME,
-    Instruction: DataTypes.STRING,
-    DrugsPerPrescriptionId: DataTypes.INTEGER
+    Instruction: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Prescription_Timing',

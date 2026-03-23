@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.belongsTo(models.Prescription, { foreignKey: 'PrescriptionId', as: 'prescription' });
       this.belongsTo(models.Drug, { foreignKey: 'DrugId', as: 'drug' });
-      this.hasMany(models.Prescription_Timing, { foreignKey: 'DrugsPerPrescriptionId', as: 'timings' });
+      this.belongsTo(models.Prescription_Timing, { foreignKey: 'PrescriptionTimingId', as: 'timing' });
       this.hasOne(models.Dispense_Item, { foreignKey: 'DrugsPerPrescriptionId', as: 'dispenseItem' });
     }
   }
@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     Duration: DataTypes.STRING,
     Quantity: DataTypes.INTEGER,
     PrescriptionId: DataTypes.INTEGER,
-    DrugId: DataTypes.INTEGER
+    DrugId: DataTypes.INTEGER,
+    PrescriptionTimingId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Drugs_Per_Prescription',
